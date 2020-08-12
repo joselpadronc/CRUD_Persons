@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container">
+	<h1 style="margin: 55px 0">Lista de personas</h1>
+	<table class="table table-hover">
+		<thead>
+	    	<tr>
+	    	  <th scope="col">Nombre</th>
+	    	  <th scope="col">Cedula</th>
+	    	  <th scope="col">Nacionalidad</th>
+	    	  <th scope="col">Edad</th>
+	    	  <th scope="col">Acciones</th>
+	    	</tr>
+		</thead>
+		<tbody>
+			<tr id="xhr"></tr>
+		</tbody>
+	</table> 
+</section>
+
+{% endblock %}
