@@ -12,9 +12,8 @@
             // console.log(xhr.responseText);
             console.log("Exito");
 
-            console.log(xhr.responseText);
-            //let json = JSON.parse(xhr.responseText);
-            //console.log(json);
+            let json = JSON.parse(xhr.responseText);
+            console.log(json);
 
             //json.forEach((el) => {
             //    const $li = document.createElement('li');
