@@ -1,11 +1,10 @@
 from django.urls import path
-from .views import home_page, register_person, edit_person, delete_person, home_page_temaplate
+from .views import home_page, list_persons_view, register_person_view, edit_person_view, delete_person_view
 
 urlpatterns = [
-    path('', home_page_temaplate, name="home_page_template"),
-    path('list-persons/', home_page, name="home_page"),
-    path('registro/', register_person, name="register_person"),
-    path('editar/<id>/', edit_person, name="edit_person"),
-    path('eliminar/<id>/', delete_person, name="delete_person"),
+    path('', home_page, name="home_page"),
+    path('list-persons/', list_persons_view, name="list_persons"),
+    path('registro/', register_person_view, name="register_person"),
+    path('editar/<id>/', edit_person_view, name="edit_person"),
+    path('eliminar/<id>/', delete_person_view, name="delete_person"),
 ]
-

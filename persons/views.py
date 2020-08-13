@@ -13,37 +13,37 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-def home_page_temaplate(request):
-	template_name = 'index.html'
-	return render(request, template_name)
-
-
 def home_page(request):
 	persons = Person.objects.all()
+	data = {
+		'persons':persons
+	}
+	template_name = 'index.html'
+	return render(request, template_name, data)
 
-	if request.is_ajax():
-		list_persons = []
 
-		for person in persons:
-			data_person = {}
-			data_person['id'] = person.id
-			data_person['name'] = person.name
-			data_person['id card'] = person.id_card
-			data_person['nationality'] = person.nationality
-			data_person['age'] = person.age
+def list_persons_view(request):
+	persons = Person.objects.all()
 
-			list_persons.append(data_person)
+	list_persons = []
 
-		data = json.dumps(list_persons)
-		print (type(data))
-		return HttpResponse(data, 'application/json')
+	for person in persons:
+		data_person = {}
+		data_person['id'] = person.id
+		data_person['name'] = person.name
+		data_person['id_card'] = person.id_card
+		data_person['nationality'] = person.nationality
+		data_person['age'] = person.age
 
-	else:
-		return redirect('home_page_template')
+		list_persons.append(data_person)
+
+	data = json.dumps(list_persons)
+	print (type(data))
+	return HttpResponse(data, 'application/json')
 
 
 @login_required
-def register_person(request):
+def register_person_view(request):
 	data = {
 		'form':PersonForm()
 	}
@@ -59,7 +59,7 @@ def register_person(request):
 
 
 @login_required
-def edit_person(request, id):
+def edit_person_view(request, id):
 	person = Person.objects.get(id=id)
 
 	data = {
@@ -78,7 +78,7 @@ def edit_person(request, id):
 
 
 @login_required
-def delete_person(request, id):
+def delete_person_view(request, id):
 	person = Person.objects.get(id=id)
 
 	person.delete()
