@@ -4,6 +4,7 @@
 
 <section class="container">
 	<h1 style="margin: 55px 0">Lista de personas</h1>
+	<button style="margin-bottom: 20px;" id="update-list-btn" type="button" class="btn btn-outline-success">Actualizar Lista</button>
 	<table id="xhr" class="table table-hover">
 		<thead>
 	    	<tr>
@@ -14,24 +15,8 @@
 	    	  <th scope="col">Acciones</th>
 	    	</tr>
 		</thead>
-		<tbody>
-			<button style="margin-bottom: 20px;" id="update-list-btn" type="button" class="btn btn-outline-success">Actualizar Lista</button>
-			{% for person in persons %}
-			<tr>
-				<td>{{ person.name }}</td>
-				<td>{{ person.id_card }}</td>
-				<td>{{ person.nationality }}</td>
-				<td>{{ person.age }}</td>
-				<td>
-					<a href="{% url "edit_person" person.id %}">
-						<button type="button" class="btn btn-warning">Editar</button>
-					</a>
-					<a href="{% url "delete_person" person.id %}">
-						<button type="button" class="btn btn-danger">Eliminar</button>
-					</a>
-				</td>
-			</tr>
-			{% endfor %}
+		<tbody id="res">
+			
 		</tbody>
 	</table> 
 </section>
