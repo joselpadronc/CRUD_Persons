@@ -5,8 +5,8 @@
 <section class="container">
 	<h1 style="margin: 55px 0">Lista de personas</h1>
 	<button style="margin-bottom: 20px;" id="update-list-btn" type="button" class="btn btn-outline-success">Actualizar Lista</button>
-	<table id="xhr" class="table table-hover">
-		<thead>
+	<table id="table" class="table table-hover">
+		<thead id="thead">
 	    	<tr>
 	    	  <th scope="col">Nombre</th>
 	    	  <th scope="col">Cedula</th>
@@ -15,11 +15,14 @@
 	    	  <th scope="col">Acciones</th>
 	    	</tr>
 		</thead>
-		<tbody id="res">
-			
+		<tbody id="tbody">
 		</tbody>
 	</table> 
 </section>
 
+{% load static %}
+{% block local_js %}
+	<script src="{% static 'js/persons/ajaxGet.js' %}"></script>
+{% endblock local_js %}
 
 {% endblock %}
